@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31912.275
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GreenPipes.FluentValidation", "GreenPipes.FluentValidation\GreenPipes.FluentValidation.csproj", "{6920D86A-8BFD-4461-8EBA-8937D3835CA6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6920D86A-8BFD-4461-8EBA-8937D3835CA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6920D86A-8BFD-4461-8EBA-8937D3835CA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6920D86A-8BFD-4461-8EBA-8937D3835CA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6920D86A-8BFD-4461-8EBA-8937D3835CA6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D6B5CDF4-E6F5-43F7-B575-C95139C67C32}
+	EndGlobalSection
+EndGlobal
