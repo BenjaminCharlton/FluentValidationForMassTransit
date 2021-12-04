@@ -1,38 +1,45 @@
-﻿namespace GreenPipes.FluentValidation;
+﻿namespace MassTransit.FluentValidation;
 
-public class FluentValidationFilter<TContext> : IFilter<TContext>
-where TContext : class, PipeContext
+public class FluentValidationFilter<TMessage> : IFilter<ConsumeContext<TMessage>>
+    where TMessage : class
 {
-    readonly IPipe<ValidationFailureContext<TContext>> _validationFailurePipe;
+    private readonly IValidationFailurePipe<TMessage> _failurePipe;
+    private readonly IValidator<TMessage>? _validator;
 
-    public FluentValidationFilter(IPipe<ValidationFailureContext<TContext>> validationFailurePipe)
+    public FluentValidationFilter(IValidator<TMessage>? validator, IValidationFailurePipe<TMessage> failurePipe)
     {
-        _validationFailurePipe = validationFailurePipe;
+        _validator = validator;
+        _failurePipe = failurePipe ?? throw new ArgumentNullException(nameof(failurePipe));
     }
 
     public void Probe(ProbeContext context)
     {
-        var scope = context.CreateScope("FluentValidation");
-        _validationFailurePipe.Probe(scope);
+        context.CreateScope("FluentValidationFilter");
     }
 
-    public async Task Send(TContext context, IPipe<TContext> next)
+
+    public async Task Send(
+        ConsumeContext<TMessage> context,
+        IPipe<ConsumeContext<TMessage>> next)
     {
-
-        if (context.TryGetPayload(out IEnumerable<IValidator<TContext>> validators))
+        if (_validator is null)
         {
-            var failures = validators
-                .Select(v => v.Validate(context))
-                .SelectMany(result => result.Errors)
-                .Where(f => f != null)
-                .ToList();
-
-            if (failures.Any())
-            {
-                await _validationFailurePipe.Send(new ValidationFailureContext<TContext>(context, failures));
-            }
-
             await next.Send(context);
+            return;
         }
+
+        var message = context.Message;
+        var validationResult = await _validator.ValidateAsync(message, context.CancellationToken);
+
+        if (validationResult.IsValid)
+        {
+            await next.Send(context);
+            return;
+        }
+
+        var validationProblems = validationResult.Errors.ToErrorDictionary();
+
+        var failureContext = new ValidationFailureContext<TMessage>(context, validationProblems);
+        await _failurePipe.Send(failureContext);
     }
 }

@@ -1,14 +1,16 @@
-﻿namespace GreenPipes.FluentValidation;
+﻿namespace MassTransit.FluentValidation;
 
-public class ValidationFailureContext<TWrappedContext> : BasePipeContext, PipeContext
-where TWrappedContext : PipeContext
+public class ValidationFailureContext<TMessage> :
+    BasePipeContext, PipeContext
+    where TMessage : class
 {
-    public ValidationFailureContext(TWrappedContext wrappedContext, List<ValidationFailure> failures) : base(new ListPayloadCache())
+    public ValidationFailureContext(ConsumeContext<TMessage> wrappedContext, IDictionary<string, string[]> validationProblems) :
+        base(wrappedContext.CancellationToken)
     {
-        WrappedContext = wrappedContext;
-        Failures = failures;
+        InnerContext = wrappedContext ?? throw new ArgumentNullException(nameof(wrappedContext));
+        ValidationProblems = validationProblems ?? throw new ArgumentNullException(nameof(validationProblems));
     }
 
-    public TWrappedContext WrappedContext { get; }
-    public List<ValidationFailure> Failures { get; }
+    public ConsumeContext<TMessage> InnerContext { get; }
+    public IDictionary<string, string[]> ValidationProblems { get; }
 }
