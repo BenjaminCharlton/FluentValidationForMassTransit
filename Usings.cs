@@ -2,5 +2,5 @@
 global using FluentValidation.Results;
 global using GreenPipes;
 global using MassTransit;
-global using MassTransit.FluentValidation;
+global using FluentValidationForMassTransit;
 global using GreenPipes.Payloads;

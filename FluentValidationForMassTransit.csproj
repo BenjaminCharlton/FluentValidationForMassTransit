@@ -6,8 +6,8 @@
 		<TargetFrameworks>net6.0;net5.0;netstandard2.1;netstandard2.0</TargetFrameworks>
 		<LangVersion>latest</LangVersion>
 		<PackageTags>GreenPipes MassTransit FluentValidation validation validators pipeline pipe</PackageTags>
-		<PackageProjectUrl>https://github.com/BenjaminCharlton/MassTransit.FluentValidation</PackageProjectUrl>
-		<RepositoryUrl>https://github.com/BenjaminCharlton/MassTransit.FluentValidation</RepositoryUrl>
+		<PackageProjectUrl>https://github.com/BenjaminCharlton/FluentValidationForMassTransit</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/BenjaminCharlton/FluentValidationForMassTransit</RepositoryUrl>
 		<Description>Allows functionality from the FluentValidation libraries to used in a MassTransit (GreenPipes) pipeline.</Description>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>

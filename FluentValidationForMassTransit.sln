@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31912.275
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MassTransit.FluentValidation", "MassTransit.FluentValidation.csproj", "{CB3955A5-1B3B-45CD-B434-92A292F2BC25}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FluentValidationForMassTransit", "FluentValidationForMassTransit.csproj", "{CB3955A5-1B3B-45CD-B434-92A292F2BC25}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

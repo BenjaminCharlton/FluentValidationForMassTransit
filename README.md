@@ -1,8 +1,8 @@
-# MassTransit.FluentValidation
+# FluentValidationForMassTransit
  Allows functionality from the FluentValidation libraries to used in a GreenPipes (MassTransit) pipeline. This means that any messages (e.g. commands and queries) that
  pass through your pipeline will be validated if a validator exists for that message type, otherwise they won't.
  # Get Started
- 1. Install the Nuget package `MassTransit.FluentValidation`
+ 1. Install the Nuget package `FluentValidationForMassTransit`
  2. In your Startup.cs file, in your `ConfigureServices` method, add FluentValidation and register your validators as per the FluentValidation documentation:
  ```
         services.AddControllers()
@@ -10,8 +10,8 @@
             .RegisterValidatorsFromAssemblyContaining<SomeValidator>());
  ```
  3. Decide what you would like to happen when a message fails validation. Make a `ValidationFailurePipe` to handle those messages. Your `ValidationFailurePipe`
- /must/ implement `MassTransit.FluentValidation.IValidationFailurePipe` (an interface included in this package). It /can optionally/ inherit from
-`MassTransit.FluentValidation.ValidationFailurePipeBase` (a base class included in this package). Here is an example of a `ValidationFailurePipe`
+ /must/ implement `FluentValidationForMassTransit.IValidationFailurePipe` (an interface included in this package). It /can optionally/ inherit from
+`FluentValidationForMassTransit.ValidationFailurePipeBase` (a base class included in this package). Here is an example of a `ValidationFailurePipe`
 that passes the dictionary of validation errors back to the caller, but you can code whatever functionality you like. In most cases you'll want to be calling
 `context.InnerContext.RespondAsync`. The context's `InnerContext` is the `ConsumeContext` of the message that was validated.
 ```
