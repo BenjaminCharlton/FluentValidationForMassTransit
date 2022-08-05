@@ -1,5 +1,4 @@
-﻿using GreenPipes;
-using FluentValidationForMassTransit;
+﻿namespace MassTransit;
 
 public abstract class ValidationFailurePipeBase<TMessage> : IValidationFailurePipe<TMessage>
     where TMessage : class

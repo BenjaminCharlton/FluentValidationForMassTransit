@@ -3,7 +3,7 @@
 	<PropertyGroup>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
-		<TargetFrameworks>net6.0;net5.0;netstandard2.1;netstandard2.0</TargetFrameworks>
+		<TargetFrameworks>net6.0;netstandard2.1;netstandard2.0</TargetFrameworks>
 		<LangVersion>latest</LangVersion>
 		<PackageTags>GreenPipes MassTransit FluentValidation validation validators pipeline pipe</PackageTags>
 		<PackageProjectUrl>https://github.com/BenjaminCharlton/FluentValidationForMassTransit</PackageProjectUrl>
@@ -12,7 +12,7 @@
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<Authors>Benjamin Charlton</Authors>
-		<Version>1.0.0</Version>
+		<Version>2.0.0</Version>
 		<PackageReleaseNotes>Initial release.</PackageReleaseNotes>
 		<Company>Energetic Apps</Company>
 		<PackageReadmeFile>README.md</PackageReadmeFile>

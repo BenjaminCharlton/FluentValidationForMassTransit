@@ -1,4 +1,4 @@
-﻿namespace FluentValidationForMassTransit;
+﻿namespace MassTransit;
 
 public class FluentValidationFilter<TMessage> : IFilter<ConsumeContext<TMessage>>
     where TMessage : class

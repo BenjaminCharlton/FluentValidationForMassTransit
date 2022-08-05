@@ -1,4 +1,4 @@
-﻿namespace FluentValidationForMassTransit;
+﻿namespace MassTransit;
 
 public class ValidationFailureContext<TMessage> :
     BasePipeContext, PipeContext
