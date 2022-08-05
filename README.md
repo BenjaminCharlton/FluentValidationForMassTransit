@@ -10,7 +10,7 @@
             .RegisterValidatorsFromAssemblyContaining<SomeValidator>());
  ```
  3. Decide what you would like to happen when a message fails validation. Make a `ValidationFailurePipe` to handle those messages. Your `ValidationFailurePipe`
- /must/ implement `FluentValidationForMassTransit.IValidationFailurePipe` (an interface included in this package). It /can optionally/ inherit from
+ *must* implement `FluentValidationForMassTransit.IValidationFailurePipe` (an interface included in this package). It *can optionally* inherit from
 `FluentValidationForMassTransit.ValidationFailurePipeBase` (a base class included in this package). Here is an example of a `ValidationFailurePipe`
 that passes the dictionary of validation errors back to the caller, but you can code whatever functionality you like. In most cases you'll want to be calling
 `context.InnerContext.RespondAsync`. The context's `InnerContext` is the `ConsumeContext` of the message that was validated.
