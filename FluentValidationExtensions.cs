@@ -1,6 +1,4 @@
-﻿using MassTransit.Registration;
-
-namespace MassTransit;
+﻿namespace MassTransit;
 
 /// <summary>
 /// Extension methods for injecting functionality from the <see cref="FluentValidation"/> library into a <see cref="MassTransit"/> pipeline.
@@ -26,7 +24,7 @@ public static class FluentValidationExtensions
     ///         });
     ///     });
     /// </example>
-    public static IEndpointConfigurator UseFluentValidationForMassTransit(this IEndpointConfigurator configurator, IConfigurationServiceProvider context)
+    public static IEndpointConfigurator UseFluentValidationForMassTransit(this IEndpointConfigurator configurator, IBusRegistrationContext context)
     {
         configurator.UseConsumeFilter(typeof(FluentValidationFilter<>), context);
         return configurator;
