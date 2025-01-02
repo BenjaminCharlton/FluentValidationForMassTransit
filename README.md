@@ -18,8 +18,7 @@ that passes the dictionary of validation errors back to the caller, but you can 
 public class ValidationFailurePipe<TMessage> : ValidationFailurePipeBase<TMessage>
     where TMessage : class
 {
-
-    public async override Task Send(ValidationFailureContext<TMessage> context)
+    public override async Task Send(ValidationFailureContext<TMessage> context)
     {
         var validationProblems = context.ValidationProblems;
         await context.InnerContext.RespondAsync(validationProblems);
