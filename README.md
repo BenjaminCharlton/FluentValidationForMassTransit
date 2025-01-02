@@ -34,7 +34,7 @@ public class ValidationFailurePipe<TMessage> : ValidationFailurePipeBase<TMessag
 ```
 5. In `Startup.ConfigureServices`, when you call `AddMassTransit`, you will then specify your transport mode on the `IServiceCollectionBusConfigurator`
 such as `UsingInMemory` or `UsingRabbitMQ` etc. Through that, you can use the fluent API to get an instance of `IReceiveEndpointConfigurator`.
-That is where you can specify (using the extension method in this package) `UseFluentValidationForMassTransit`. Pass as an arguemnt your instance of 
+That is where you can specify (using the extension method in this package) `UseFluentValidationForMassTransit`. Pass as an argument your instance of 
 `IBusRegistrationContext`. An example is below:
 ```
         services.AddMassTransit(services =>
